@@ -23,13 +23,11 @@ jobs:
         ssh-keyscan -H ec2-18-220-249-1.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
 
     - name: SSH Login
-      run: ssh -i ~/.ssh/web-tech-18-key.pem ubuntu@ec2-18-220-249-1.us-east-2.compute.amazonaws.com
-
-
-    - name: User Change and Commands
       run: | 
+        ssh -i ~/.ssh/web-tech-18-key.pem ubuntu@ec2-18-220-249-1.us-east-2.compute.amazonaws.com
         sudo su -
         ls -la
         ls -la /var/www/html/
         cd /var/www/html/web-tech-group-18/
         git pull
+
