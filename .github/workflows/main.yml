@@ -25,7 +25,7 @@ jobs:
     - name: SSH Login
       run: |
         # copy over update script
-        scp .github/scripts/update.sh ubuntu@ec2-18-220-249-1.us-east-2.compute.amazonaws.com:update.sh
+        scp -i ~/.ssh/web-tech-18-key.pem .github/scripts/update.sh ubuntu@ec2-18-220-249-1.us-east-2.compute.amazonaws.com:update.sh
         # run update script
         ssh -i ~/.ssh/web-tech-18-key.pem ubuntu@ec2-18-220-249-1.us-east-2.compute.amazonaws.com "bash update.sh" 
 
