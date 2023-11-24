@@ -1,0 +1,26 @@
+name: SSH Login to Linux Machine
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ssh-login:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openssh-client
+        mkdir -p ~/.ssh
+        echo "${{ secrets.LAB_7_KEY }}" > ~/.ssh/lab-7-key.pem
+        chmod 600 ~/.ssh/lab-7-key.pem
+        ssh-keyscan -H ec2-3-144-154-78.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
+
+    - name: SSH Login
+      run: ssh -i ~/.ssh/lab-7-key.pem ubuntu@ec2-3-144-154-78.us-east-2.compute.amazonaws.com
