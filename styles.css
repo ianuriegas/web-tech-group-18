@@ -6,6 +6,12 @@ body {
     margin: 0;
 }
 
+.home-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .category-container {
     width: 80%;
     margin-top: 20px;
@@ -48,8 +54,24 @@ body {
     color: inherit;
 }
 
-.home-icon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+.posts-container {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-box {
+    width: 70%;
+    height: 50px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.1s, color 0.1s;
 }
