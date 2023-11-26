@@ -22,7 +22,21 @@
     <a href="login.html" class="w3-xxlarge user-icon"
       ><i class="bi bi-person"></i>
     </a>
-    <h1>Sports</h1>
-    <h2>Posts</h2>
+    <h1>Login</h1>
+    <div class="login-container">
+      <form action="/login-form-submission.html" method="post">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit" class="login-button" style="margin-top: 20px">
+          Sign In
+        </button>
+      </form>
+      <a href="create-account.html">Create Account</a>
+      <a href="forgot-password.html">Forgot Password</a>
+    </div>
   </body>
 </html>
