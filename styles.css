@@ -105,14 +105,14 @@ input[type="password"] {
     border-radius: 4px;
 }
 
-a {
+.login-links {
     display: block;
     margin-top: 10px;
     color: #337ab7;
     text-decoration: none;
 }
 
-a:hover {
+.login-links:hover {
     text-decoration: underline;
 }
 
