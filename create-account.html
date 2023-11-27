@@ -25,17 +25,17 @@
     </a>
     <h1>Create Account</h1>
     <div class="login-container">
-      <form id="userForm">
+      <form id="userForm" method="get" action="add-user.php">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required />
-
+    
         <label for="password">Password</label> 
         <input type="password" id="password" name="password" required />
-
-        <button type="button" class="login-button" style="margin-top: 20px" onclick="sendUserDataToDB()">
-          Create Account
+    
+        <button type="submit" class="login-button" style="margin-top: 20px">
+            Create Account
         </button>
-      </form>
+    </form>
       <a href="login.html" class="login-links">Login</a>
       <a href="forgot-password.html" class="login-links">Forgot Password</a>
     </div>
