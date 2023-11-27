@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       // Make an AJAX request using the Fetch API
       fetch("add-user.php", {
-        method: "GET",
+        method: "POST", // Change to POST method
         headers: {
           "Content-Type": "application/json",
         },
