@@ -19,7 +19,7 @@ echo "Database connection success<br>";
 $conn->begin_transaction();
 
 try {
-    $admin = false;
+    $admin = 0;
     $username = $_POST['username'];
     $password = $_POST['password'];
 
