@@ -19,12 +19,18 @@ function sendUserDataToDB(formData) {
     console.log('Password:', password);
 
     // Note: encodeURIComponent is used to properly encode the values in the URL
-    const url = `./add-user.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+    const url = './add-user.php';
 
-    fetch(url)
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+    })
     .then(response => response.text())
     .then(data => {
-        console.log(data); // Log the response from the PHP script
+        console.log(data);
         // Add any additional client-side logic here
     })
     .catch(error => {
