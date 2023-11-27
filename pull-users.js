@@ -1,13 +1,20 @@
-function sendUserDataToDB() {
-    const username = document.getElementsByName('username')[0].value;
-    const password = document.getElementsByName('password')[0].value;
+document.addEventListener('DOMContentLoaded', function () {
+    const userForm = document.getElementById('userForm');
 
+    userForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = new FormData(userForm);
+
+        // Call the function to send data to the server
+        sendUserDataToDB(formData);
+    });
+});
+
+function sendUserDataToDB(formData) {
     fetch('./add-user.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        body: formData,
     })
     .then(response => response.text())
     .then(data => {
