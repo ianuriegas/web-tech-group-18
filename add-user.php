@@ -15,9 +15,6 @@ $admin = 0;
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-INSERT INTO users (admin, username, password) 
-VALUES (1,'admin', 'admin@123');
-
 $sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
 
 if ($conn->query($sql) === TRUE) {
