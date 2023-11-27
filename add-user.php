@@ -11,16 +11,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$admin = 0;
-$username = $_POST['username'];
-$password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $admin = 0;
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-$sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
+    // Hash the password before storing it
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$hashedPassword')";
+
+    if ($conn->query($sql) === TRUE) {
+        // Redirect back to the index page after successful insertion
+        header("Location: index.html");
+        exit(); // Ensure that no other output is sent
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();
