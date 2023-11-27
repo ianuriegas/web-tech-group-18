@@ -2,7 +2,7 @@ function sendUserDataToDB() {
     const username = document.getElementsByName('username')[0].value;
     const password = document.getElementsByName('password')[0].value;
 
-    fetch('insertData.php', {
+    fetch('add-user.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
