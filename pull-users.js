@@ -12,10 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function sendUserDataToDB(formData) {
-    fetch('./add-user.php', {
-        method: 'POST',
-        body: formData,
-    })
+    const username = formData.get('username');
+    const password = formData.get('password');
+
+    // Note: encodeURIComponent is used to properly encode the values in the URL
+    const url = `./add-user.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+
+    fetch(url)
     .then(response => response.text())
     .then(data => {
         console.log(data); // Log the response from the PHP script

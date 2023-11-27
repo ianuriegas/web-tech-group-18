@@ -16,8 +16,8 @@ if (mysqli_connect_errno())
 echo "database connection success<br>";
 
 $admin = 0;
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_GET['username'];  // Retrieve from $_GET array
+$password = $_GET['password'];  // Retrieve from $_GET array
 
 $sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
 
