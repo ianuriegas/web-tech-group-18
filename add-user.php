@@ -1,5 +1,4 @@
 <?php
-
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "mysqlpassword";
@@ -12,32 +11,30 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-echo "database connection success<br>";
-
-// Process the JSON data from the AJAX request
-$data = json_decode(file_get_contents("php://input"));
-
-// Check if the required fields are present
-if (isset($data->username) && isset($data->password)) {
-    $username = $data->username;
-    $password = $data->password;
+// Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = mysqli_real_escape_string($conn, $_POST["username"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
     // Hash the password (for security)
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
     // Set admin to false by default
     $admin = false;
 
-    // Insert user data into the database
-    $sql = "INSERT INTO user_table (admin, username, password) VALUES ('$admin', '$username', '$hashed_password')";
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO user_table (admin, username, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $admin, $username, $hashed_password);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         echo "Account created successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error creating account";
+        // Log the error instead of exposing details
+        error_log($stmt->error);
     }
-} else {
-    echo "Error: Missing required fields";
+
+    $stmt->close();
 }
 
 $conn->close();
