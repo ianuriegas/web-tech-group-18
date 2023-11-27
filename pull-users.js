@@ -26,7 +26,7 @@ function sendUserDataToDB(formData) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        body: new URLSearchParams(formData).toString(),
     })
     .then(response => response.text())
     .then(data => {
