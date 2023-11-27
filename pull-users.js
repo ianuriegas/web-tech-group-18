@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     userForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted'); // Add this line for debugging
 
         const formData = new FormData(userForm);
 
@@ -14,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function sendUserDataToDB(formData) {
     const username = formData.get('username');
     const password = formData.get('password');
+    console.log('Username:', username); // Add this line for debugging
+    console.log('Password:', password);
 
     // Note: encodeURIComponent is used to properly encode the values in the URL
     const url = `./add-user.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
