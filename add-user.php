@@ -7,25 +7,38 @@ $db_name = "main_database";
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-if (mysqli_connect_errno())
-{
-    echo 'Connection to database failed:'.mysqli_connect_error();
+if (mysqli_connect_errno()) {
+    echo 'Connection to database failed: ' . mysqli_connect_error();
     exit();
 }
 
-echo "database connection success<br>";
+echo "Database connection success<br>";
 
-$admin = false;
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Start a transaction
+$conn->begin_transaction();
 
-$sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
+try {
+    $admin = false;
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        // Commit the transaction if the query is successful
+        $conn->commit();
+        echo "Data inserted successfully";
+    } else {
+        // Rollback the transaction if there is an error
+        $conn->rollback();
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+} catch (Exception $e) {
+    // Handle exceptions and roll back the transaction
+    $conn->rollback();
+    echo "Exception: " . $e->getMessage();
 }
 
+// Close the database connection
 $conn->close();
 ?>
