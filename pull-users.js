@@ -1,29 +1,60 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const userForm = document.getElementById('userForm');
-
-    userForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(userForm);
-
-        // Call the function to send data to the server
-        sendUserDataToDB(formData);
-    });
-});
-
-function sendUserDataToDB(formData) {
-    console.log('Form Data:', formData); // Log the formData to the console
-
-    fetch('./add-user.php?' + new URLSearchParams(formData), {
-        method: 'GET',
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data); // Log the response from the PHP script
-        // Add any additional client-side logic here
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle errors
-    });
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to fetch user data from the server
+    function pullUsers() {
+      fetch("pull-users.php", {
+        method: "GET",
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json(); // Assuming your server sends JSON data
+        })
+        .then(function (data) {
+          // Handle the user data received from the server
+          console.log(data);
+          // You can update the DOM or perform other actions with the data
+        })
+        .catch(function (error) {
+          // Handle errors (if any)
+          console.error("Error:", error);
+        });
+    }
+  
+    // Call the pullUsers function when the page loads
+    pullUsers();
+  
+    // Function to create a new account
+    window.createAccount = function () {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+  
+      // Make an AJAX request using the Fetch API
+      fetch("add-user.php", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text();
+        })
+        .then(function (data) {
+          // Handle the response from the server (if needed)
+          console.log(data);
+          // Refresh user data after creating a new account
+          pullUsers();
+        })
+        .catch(function (error) {
+          // Handle errors (if any)
+          console.error("Error:", error);
+        });
+    };
+  });

@@ -24,19 +24,20 @@
     </a>
     <h1>Create Account</h1>
     <div class="login-container">
-      <form action="add-user.php" method="post">
+      <form id="registrationForm">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required />
     
         <label for="password">Password</label> 
         <input type="password" id="password" name="password" required />
     
-        <button type="submit" class="login-button" style="margin-top: 20px">
+        <button type="button" class="login-button" style="margin-top: 20px" onclick="createAccount()">
             Create Account
         </button>
     </form>
       <a href="login.html" class="login-links">Login</a>
       <a href="forgot-password.html" class="login-links">Forgot Password</a>
     </div>
+    <script src="pull-users.js"></script>
   </body>
 </html>
