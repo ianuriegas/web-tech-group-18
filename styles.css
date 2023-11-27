@@ -131,3 +131,47 @@ input[type="password"] {
 .login-button:hover {
     background-color: rgb(65, 65, 65);
 }
+
+.admin-dash-container {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around; /* This is optional, depending on your design requirements */
+
+}
+
+.admin-dash-box {
+    width: 30%;
+    height: 50px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.admin-dash-box:hover {
+    background-color: black;
+    color: white;
+}
+
+.admin-dash-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px;
+}
+
+.admin-dash-box:hover a {
+    color: inherit;
+}
