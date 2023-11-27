@@ -1,19 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const userForm = document.getElementById('userForm');
-
-    userForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(userForm);
-
-        // Call the function to send data to the server
-        sendUserDataToDB(formData);
-    });
-});
-
-function sendUserDataToDB(formData) {
-    const username = formData.get('username');
-    const password = formData.get('password');
+function sendUserDataToDB() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
     // Note: encodeURIComponent is used to properly encode the values in the URL
     const url = `./add-user.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
