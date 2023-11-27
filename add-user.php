@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(E_ALL);
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "mysqlpassword";
