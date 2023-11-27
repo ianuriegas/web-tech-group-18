@@ -15,16 +15,25 @@ if (mysqli_connect_errno())
 
 echo "database connection success<br>";
 
-$admin = 0;
-$username = $_GET['username'];  // Retrieve from $_GET array
-$password = $_GET['password'];  // Retrieve from $_GET array
+// Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-$sql = "INSERT INTO users (admin, username, password) VALUES ('$admin', '$username', '$password')";
+    // Hash the password (for security)
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Set admin to false by default
+    $admin = false;
+
+    // Insert user data into the database
+    $sql = "INSERT INTO user_table (admin, username, password) VALUES ('$admin', '$username', '$hashed_password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Account created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();
