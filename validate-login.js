@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userForm = document.getElementById('loginForm');
+    const failMessage = document.getElementById('failMessage');
 
     userForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = new FormData(userForm);
 
         // Call the function to send data to the server
-        checkUserCredentials(formData, userForm);
+        checkUserCredentials(formData, userForm, failMessage);
 
     });
 });
