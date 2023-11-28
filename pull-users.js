@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Call the function to send data to the server
         sendUserDataToDB(formData);
+
     });
 });
 
@@ -32,6 +33,13 @@ function sendUserDataToDB(formData) {
     .then(data => {
         console.log(data);
         // Add any additional client-side logic here
+        if (data === 'Data inserted successfully') {
+            // Display success message
+            successMessage.style.display = 'block';
+
+            // Clear the form
+            userForm.reset();
+        }
     })
     .catch(error => {
         console.error('Error:', error);
