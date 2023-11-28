@@ -29,13 +29,13 @@ try {
     if ($result->num_rows > 0) {
         // Commit the transaction if there is a match
         $row = $result->fetch_assoc();
+        echo $row;
+        // if ($row['admin'] == 1) {
 
-        if ($row['admin'] == 1) {
-            console.log('Row is:', $row);
-            // Redirect to admin page if user is an admin
-            header("Location: admin/admin-dashboard.html");
-            exit();
-        }
+        //     // Redirect to admin page if user is an admin
+        //     header("Location: admin/admin-dashboard.html");
+        //     exit();
+        // }
         $conn->commit();
         echo "Login successful";
     } else {
