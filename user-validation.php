@@ -30,7 +30,7 @@ try {
         // Commit the transaction if there is a match
         $row = $result->fetch_assoc();
 
-        if ($row['admin'] == true) {
+        if ($row['admin'] == 1) {
             // Redirect to admin page if user is an admin
             header("Location: /admin/admin-dashboard.html");
             exit();
