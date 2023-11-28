@@ -32,7 +32,7 @@ try {
 
         if ($row['admin'] == true) {
             // Redirect to admin page if user is an admin
-            window.location.href = 'admin/admin-dashboard.html';
+            header("Location: admin/admin-dashboard.html");
             exit();
         }
         $conn->commit();
