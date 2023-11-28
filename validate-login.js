@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const userForm = document.getElementById('loginForm');
-    const failMessage = document.getElementById('failMessage');
+    if (window.location.pathname === './login.html') {
+        const userForm = document.getElementById('loginForm');
+        const failMessage = document.getElementById('failMessage');
 
-    userForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-        console.log('Form submitted'); // Add this line for debugging
+        userForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+            console.log('Form submitted'); // Add this line for debugging
 
-        const formData = new FormData(userForm);
+            const formData = new FormData(userForm);
 
-        // Call the function to send data to the server
-        checkUserCredentials(formData, userForm, failMessage);
+            // Call the function to send data to the server
+            checkUserCredentials(formData, userForm, failMessage);
 
-    });
+        });
+    }   
 });
 
 function checkUserCredentials(formData, userForm, failMessage) {
