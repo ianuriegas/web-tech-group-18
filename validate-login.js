@@ -1,21 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Current path:', window.location.pathname);
+    const userForm = document.getElementById('loginForm');
+    const failMessage = document.getElementById('failMessage');
 
-    if (window.location.pathname.endsWith === '/web-tech-group-18/login.html') {
-        const userForm = document.getElementById('loginForm');
-        const failMessage = document.getElementById('failMessage');
+    userForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted'); // Add this line for debugging
 
-        userForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-            console.log('Form submitted'); // Add this line for debugging
+        const formData = new FormData(userForm);
 
-            const formData = new FormData(userForm);
+        // Call the function to send data to the server
+        checkUserCredentials(formData, userForm, failMessage);
 
-            // Call the function to send data to the server
-            checkUserCredentials(formData, userForm, failMessage);
-
-        });
-    }   
+    });
 });
 
 function checkUserCredentials(formData, userForm, failMessage) {
@@ -25,7 +21,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
     console.log('Password:', password);
 
     // Note: encodeURIComponent is used to properly encode the values in the URL
-    const url = './user-login.php';
+    const url = './user-validation.php';
 
     fetch(url, {
         method: 'POST',
@@ -46,10 +42,6 @@ function checkUserCredentials(formData, userForm, failMessage) {
             console.log('Login successful');
             // Redirect to index.html
             window.location.href = 'index.html';
-
-            // Display username next to the account icon
-            const userWelcome = document.getElementById('loggedUser');
-            userWelcome.textContent = `${username}`;
 
             // reset form 
             failMessage.style.display = 'none';
