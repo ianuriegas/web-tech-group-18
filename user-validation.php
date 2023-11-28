@@ -33,7 +33,7 @@ try {
         if ($row['admin'] == 1) {
             console.log('Row is:', $row);
             // Redirect to admin page if user is an admin
-            header("Location: /admin/admin-dashboard.html");
+            header("Location: admin/admin-dashboard.html");
             exit();
         }
         $conn->commit();
