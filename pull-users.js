@@ -33,14 +33,14 @@ function sendUserDataToDB(formData) {
     .then(data => {
         console.log(data);
         // Add any additional client-side logic here
-        if (data == 'Data inserted successfully') {
+        //if (data == 'Data inserted successfully') {
             // Display success message
             console.log('Success!');
             successMessage.style.display = 'block';
 
             // Clear the form
             userForm.reset();
-        }
+        //}
     })
     .catch(error => {
         console.error('Error:', error);
