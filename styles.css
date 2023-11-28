@@ -207,3 +207,7 @@ input[type="category-label"] {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+.successMessage{
+    color: green; 
+    display: none;
+}
