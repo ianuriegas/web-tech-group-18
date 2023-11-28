@@ -46,7 +46,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
         } else {
             console.log('Login successful');
             // Redirect to index.html
-            //window.location.href = 'index.html';
+            window.location.href = 'index.html';
 
             // reset form 
             failMessage.style.display = 'none';
