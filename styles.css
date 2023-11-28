@@ -18,6 +18,17 @@ body {
     right: 10px;
 }
 
+.plus-icon {
+    margin-left: 8px;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    top: 50px;
+}
+
 
 /* this was used to display the username next to the user icon */
 /* .account-info {
