@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userForm = document.getElementById('registerForm');
-
+    const successMessage = document.getElementById('successMessage');
     userForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted'); // Add this line for debugging
@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = new FormData(userForm);
 
         // Call the function to send data to the server
-        sendUserDataToDB(formData);
+        sendUserDataToDB(formData, userForm, successMessage);
 
     });
 });
 
-function sendUserDataToDB(formData) {
+function sendUserDataToDB(formData, userForm, successMessage) {
     const username = formData.get('username');
     const password = formData.get('password');
     console.log('Username:', username); // Add this line for debugging
@@ -39,7 +39,7 @@ function sendUserDataToDB(formData) {
             successMessage.style.display = 'block';
 
             // Clear the form
-            formData.reset();
+            userForm.reset();
         //}
     })
     .catch(error => {
