@@ -32,14 +32,15 @@ function checkUserCredentials(formData, userForm, failMessage) {
     })
     .then(response => response.text())
     .then(data => {
-        console.log(data);
-            // Display success message
-            console.log('Success!');
-            if(data == "Invalid username or password") {
-                failMessage.style.display = 'block';
-            }
-            // Clear the form
+        console.log('Received data:', data);
+
+        if (data.trim() === "Invalid username or password") {
+            console.log('Invalid credentials');
+            failMessage.style.display = 'block';
+        } else {
+            console.log('Login successful');
             userForm.reset();
+        }
     })
     .catch(error => {
         console.error('Error:', error);
