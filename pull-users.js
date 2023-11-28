@@ -39,7 +39,7 @@ function sendUserDataToDB(formData) {
             successMessage.style.display = 'block';
 
             // Clear the form
-            userForm.reset();
+            formData.reset();
         //}
     })
     .catch(error => {
