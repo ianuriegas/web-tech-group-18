@@ -26,9 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // submit the form (might need to change or update when connected to db)
     document.getElementById('newPostForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        // add whatever is needed to save to db??
+    
         const formData = new FormData(document.getElementById('newPostForm'));
         console.log('Form Data:', formData);
+    
         // Use the Fetch API to send the data to the PHP script
         fetch('./add-post.php', {
             method: 'POST',
@@ -36,10 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
-        // close modal
-        closeModal(); 
+            console.log(data); // You can handle the response here
+    
+            // Optionally, close the modal
+            closeModal();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors
+        });
     });
 });
-
-
