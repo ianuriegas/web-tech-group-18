@@ -13,8 +13,6 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-echo "Database connection success<br>";
-
 // Start a transaction
 $conn->begin_transaction();
 
