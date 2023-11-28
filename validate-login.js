@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('Current path:', window.location.pathname);
+    
     if (window.location.pathname === '/login.html') {
         const userForm = document.getElementById('loginForm');
         const failMessage = document.getElementById('failMessage');
