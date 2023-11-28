@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Current path:', window.location.pathname);
 
-    if (window.location.pathname === '/web-tech-group-18/login.html') {
+    if (window.location.pathname.endsWith === '/web-tech-group-18/login.html') {
         const userForm = document.getElementById('loginForm');
         const failMessage = document.getElementById('failMessage');
 
