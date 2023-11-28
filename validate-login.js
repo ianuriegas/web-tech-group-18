@@ -34,11 +34,11 @@ function checkUserCredentials(formData, userForm, failMessage) {
     .then(data => {
         console.log('Received data:', data);
 
-        if (data.trim() === "Invalid username or password") {
+        if (data.status === 'error' && data.message === "Invalid username or password") {
             console.log('Invalid credentials');
             failMessage.style.display = 'block';
             userForm.reset();
-        } else if (data.admin === '1') {
+        } else if (data.status === 'success' && data.admin === '1') {
             console.log('Admin login successful');
             // Redirect to admin-dashboard.html
             window.location.href = 'admin/admin-dashboard.html';
