@@ -40,6 +40,14 @@ function checkUserCredentials(formData, userForm, failMessage) {
             userForm.reset();
         } else {
             console.log('Login successful');
+            // Redirect to index.html
+            window.location.href = 'index.html';
+
+            // Display username next to the account icon
+            const userWelcome = document.getElementById('loggedUser');
+            userWelcome.textContent = `${username}`;
+
+            // reset form 
             failMessage.style.display = 'none';
             userForm.reset();
         }
