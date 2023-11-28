@@ -40,6 +40,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
             userForm.reset();
         } else {
             console.log('Login successful');
+            failMessage.style.display = 'none';
             userForm.reset();
         }
     })
