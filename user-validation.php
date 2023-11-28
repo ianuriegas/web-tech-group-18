@@ -30,24 +30,20 @@ try {
         // Commit the transaction if there is a match
         $row = $result->fetch_assoc();
         
-        print_r($row);
-        // if ($row['admin'] == 1) {
-
-        //     // Redirect to admin page if user is an admin
-        //     header("Location: admin/admin-dashboard.html");
-        //     exit();
-        // }
+    
+        
         $conn->commit();
-        echo "Login successful";
+        echo json_encode(['status' => 'success', 'admin' => $row['admin']]);
+        //echo "Login successful";
     } else {
         // Rollback the transaction if there is an error
         $conn->rollback();
-        echo "Invalid username or password";
+        echo json_encode(['status' => 'error', 'message' => 'Invalid username or password']);
     }
 } catch (Exception $e) {
     // Handle exceptions and roll back the transaction
     $conn->rollback();
-    echo "Exception: " . $e->getMessage();
+    echo json_encode(['status' => 'error', 'message' => 'Exception: ' . $e->getMessage()]);
 }
 
 // Close the database connection
