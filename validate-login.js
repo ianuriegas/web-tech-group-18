@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname === './login.html') {
+    if (window.location.pathname === '/login.html') {
         const userForm = document.getElementById('loginForm');
         const failMessage = document.getElementById('failMessage');
 
