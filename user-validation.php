@@ -28,6 +28,13 @@ try {
 
     if ($result->num_rows > 0) {
         // Commit the transaction if there is a match
+        $row = $result->fetch_assoc();
+
+        if ($row['admin'] == 1) {
+            // Redirect to admin page if user is an admin
+            window.location.href = 'admin/admin-dashboard.html';
+            exit();
+        }
         $conn->commit();
         echo "Login successful";
     } else {
