@@ -38,6 +38,11 @@ function checkUserCredentials(formData, userForm, failMessage) {
             console.log('Invalid credentials');
             failMessage.style.display = 'block';
             userForm.reset();
+        } else if (data.admin === '1') {
+            console.log('Admin login successful');
+            // Redirect to admin-dashboard.html
+            window.location.href = 'admin/admin-dashboard.html';
+
         } else {
             console.log('Login successful');
             // Redirect to index.html

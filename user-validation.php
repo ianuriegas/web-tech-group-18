@@ -29,7 +29,7 @@ try {
     if ($result->num_rows > 0) {
         // Commit the transaction if there is a match
         $row = $result->fetch_assoc();
-        echo "Row data: ";
+        
         print_r($row);
         // if ($row['admin'] == 1) {
 
