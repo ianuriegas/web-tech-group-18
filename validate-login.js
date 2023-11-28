@@ -37,6 +37,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
         if (data.trim() === "Invalid username or password") {
             console.log('Invalid credentials');
             failMessage.style.display = 'block';
+            userForm.reset();
         } else {
             console.log('Login successful');
             userForm.reset();
