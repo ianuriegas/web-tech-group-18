@@ -30,8 +30,9 @@ function checkUserCredentials(formData, userForm, failMessage) {
         },
         body: new URLSearchParams(formData).toString(),
     })
+    .then(wait(1000))
     .then(response => response.json())
-    .then(wait())
+    .then(wait(1000))
     .then(data => {
         console.log('Received data:', data);
 
