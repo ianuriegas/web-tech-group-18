@@ -21,7 +21,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
     console.log('Password:', password);
 
     // Note: encodeURIComponent is used to properly encode the values in the URL
-    const url = './user-validation.php';
+    const url = 'http://ec2-18-220-249-1.us-east-2.compute.amazonaws.com/web-tech-group-18/user-validation.php';
 
     fetch(url, {
         method: 'POST',
