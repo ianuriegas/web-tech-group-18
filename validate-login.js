@@ -70,5 +70,6 @@ function runAJAX(username) {
     //     window.location.href = 'index.html';
     // }
     xhttp.open("POST", "session.php" + "?username=" + username, true);
+    xhttp.open("POST", "cookie.php" + "?username=" + username, true);
     xhttp.send();
 }
