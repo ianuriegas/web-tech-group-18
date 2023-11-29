@@ -61,7 +61,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
 
 function getDataFromForm() {
     let username = document.getElementsByName("username")[0].value;
-    runAjax(username);
+    runAJAX(username);
 }
 
 function runAJAX(username) {
