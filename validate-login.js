@@ -40,13 +40,17 @@ function checkUserCredentials(formData, userForm, failMessage) {
             userForm.reset();
         } else if (data.status === 'success' && data.admin === '1') {
             console.log('Admin login successful');
+            runUserAJAX(username);
             // Redirect to admin-dashboard.html
-            window.location.href = 'admin/admin-dashboard.html';
+            // window.location.href = 'admin/admin-dashboard.html';
+            // window.location.href = 'admin-session.php';
 
         } else {
             console.log('Login successful');
+            runAdminAJAX(username);
             // Redirect to index.html
-            window.location.href = 'index.html';
+            // window.location.href = 'index.html';
+            // window.location.href = 'user-session.php';
 
             // reset form 
             failMessage.style.display = 'none';
@@ -57,4 +61,22 @@ function checkUserCredentials(formData, userForm, failMessage) {
         console.error('Error:', error);
         // Handle errors
     });
+}
+
+function runAdminAJAX(username) {
+    const xhttp = new XMLHttpRequest();
+    // xhttp.onload = function() {
+    //     window.location.href = 'admin/admin-dashboard.html';
+    // }
+    xhttp.open("POST", "admin-session.php" + "?username=" + username, true);
+    xhttp.send();
+}
+
+function runUserAJAX(username) {
+    const xhttp = new XMLHttpRequest();
+    // xhttp.onload = function() {
+    //     window.location.href = 'index.html';
+    // }
+    xhttp.open("POST", "user-session.php" + "?username=" + username, true);
+    xhttp.send();
 }
