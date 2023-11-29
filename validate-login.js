@@ -40,36 +40,38 @@ function checkUserCredentials(formData, userForm, failMessage) {
             userForm.reset();
         } else if (data.status === 'success' && data.admin === '1') {
             console.log('Admin login successful');
+            // Set cookies for admin and username
+            document.cookie = "admin=true; path=/";
+            document.cookie = `username=${data.username}; path=/`;
             // Redirect to admin-dashboard.html
             window.location.href = 'admin/admin-dashboard.html';
-
         } else {
             console.log('Login successful');
+            // Set cookies for regular user and username
+            document.cookie = "admin=false; path=/";
+            document.cookie = `username=${data.username}; path=/`;
             // Redirect to index.html
             window.location.href = 'index.html';
-
-            // reset form 
             failMessage.style.display = 'none';
             userForm.reset();
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        // Handle errors
     });
 }
 
-function getDataFromForm() {
-    let username = document.getElementsByName("username")[0].value;
-    runAJAX(username);
-}
+// function getDataFromForm() {
+//     let username = document.getElementsByName("username")[0].value;
+//     runAJAX(username);
+// }
 
-function runAJAX(username) {
-    const xhttp = new XMLHttpRequest();
-    // xhttp.onload = function() {
-    //     window.location.href = 'index.html';
-    // }
-    xhttp.open("POST", "session.php" + "?username=" + username, true);
-    xhttp.open("POST", "cookie.php" + "?username=" + username, true);
-    xhttp.send();
-}
+// function runAJAX(username) {
+//     const xhttp = new XMLHttpRequest();
+//     // xhttp.onload = function() {
+//     //     window.location.href = 'index.html';
+//     // }
+//     xhttp.open("POST", "session.php" + "?username=" + username, true);
+//     xhttp.open("POST", "cookie.php" + "?username=" + username, true);
+//     xhttp.send();
+// }
