@@ -54,8 +54,6 @@ function checkUserCredentials(formData, userForm, failMessage) {
         }
     })
     .catch(error => {
-        console.log('Response:', response);
-        console.log('Data:', data);
         console.error('Error:', error);
         // Handle errors
     });
