@@ -33,7 +33,7 @@ try {
     
         
         $conn->commit();
-        echo json_encode(['status' => 'success', 'admin' => $row['admin']]);
+        echo json_encode(['status' => 'success', 'admin' => $row['admin'], 'username' => $row['username']]);
         //echo "Login successful";
     } else {
         // Rollback the transaction if there is an error
