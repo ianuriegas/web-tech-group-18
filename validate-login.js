@@ -30,8 +30,8 @@ function checkUserCredentials(formData, userForm, failMessage) {
         },
         body: new URLSearchParams(formData).toString(),
     })
-    waiting().then(response => response.json())
-    waiting().then(data => {
+    .then(response => response.json())
+    .then(data => {
         console.log('Received data:', data);
 
         if (data.status === 'error' && data.message === "Invalid username or password") {
@@ -59,10 +59,6 @@ function checkUserCredentials(formData, userForm, failMessage) {
     .catch(error => {
         console.error('Error:', error);
     });
-}
-
-async function waiting() {
-    console.log('Waiting');
 }
 
 // function getDataFromForm() {
