@@ -43,6 +43,7 @@ function checkUserCredentials(formData, userForm, failMessage) {
             // Set cookies for admin and username
             document.cookie = "admin=true; path=/";
             document.cookie = `username=${data.username}; path=/`;
+            document.cookie = `password=${data.password}; path=/`;
             // Redirect to admin-dashboard.html
             window.location.href = 'admin/admin-dashboard.html';
         } else {
