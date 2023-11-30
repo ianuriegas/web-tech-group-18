@@ -1,6 +1,6 @@
 <?php
-
 error_reporting(E_ALL);
+
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "mysqlpassword";
@@ -13,43 +13,33 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-// check if post request contains the user ID
-if (isset($_POST['userId'])) {
-    $userId = $_POST['userId'];
+// start transaction
+$conn->begin_transaction();
 
-    $conn->begin_transaction();
+try {
+    // get post data
+    $postData = json_decode(file_get_contents('php://input'), true);
 
-    try {
-        // Use prepared statement to update the user's admin status
-        $updateSql = "UPDATE users SET admin = 1 WHERE id = ?";
-        $stmt = $conn->prepare($updateSql);
+    // check if userId is provided
+    if (isset($postData['userId'])) {
+        $userId = $postData['userId'];
 
-        if ($stmt) {
-            $stmt->bind_param("i", $userId); // "i" represents integer type
-            $stmt->execute();
+        // update the user to make them an admin
+        $updateSql = "UPDATE users SET admin = 1 WHERE id = $userId";
+        $conn->query($updateSql);
 
-            // Check for errors and send a response
-            if ($stmt->error) {
-                echo json_encode(['status' => 'error', 'message' => 'Error updating user: ' . $stmt->error]);
-                $conn->rollback();
-            } else {
-                // Commit the transaction
-                $conn->commit();
-                echo json_encode(['status' => 'success', 'message' => 'User made admin successfully']);
-            }
+        // commit
+        $conn->commit();
 
-            $stmt->close();
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Prepared statement failed.']);
-            $conn->rollback();
-        }
-    } catch (Exception $e) {
-        // Handle exceptions
-        echo json_encode(['status' => 'error', 'message' => 'Exception: ' . $e->getMessage()]);
-        $conn->rollback();
+        // send json response
+        echo json_encode(['status' => 'success', 'message' => 'User made admin successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'User ID not provided.']);
     }
-} else {
-    echo json_encode(['status' => 'error', 'message' => 'User ID not provided.']);
+} catch (Exception $e) {
+    // handle exceptions
+    $conn->rollback();
+    echo json_encode(['status' => 'error', 'message' => 'Exception: ' . $e->getMessage()]);
 }
 
 // Close db connection
