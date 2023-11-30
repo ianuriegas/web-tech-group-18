@@ -367,7 +367,7 @@ input[type="category-label"] {
     color: black;
     font-size: 20px;
     white-space: nowrap;
-    top: -10px;
+    top: 2px;
     right: 50px;
 }
 
@@ -453,7 +453,8 @@ input[type="category-label"] {
     text-align: center;
 }
 
-.user-table th, .user-table td {
+.user-table th,
+.user-table td {
     border: 1px solid black;
     padding: 8px;
 }
