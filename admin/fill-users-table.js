@@ -1,11 +1,3 @@
-// function to fetch and render users
-async function fetchAndRenderUsers() {
-    const response = await fetch('get-users.php');
-    const users = await response.json();
-    renderUsers(users);
-}
-
-
 // function to remove a user
 function removeUser(userId) {
     // send an AJAX request
@@ -51,7 +43,13 @@ function makeAdmin(userId) {
 document.addEventListener('DOMContentLoaded', function () {
     const userTableBody = document.getElementById('userTableBody');
 
-    
+    // function to fetch and render users
+    async function fetchAndRenderUsers() {
+        const response = await fetch('get-users.php');
+        const users = await response.json();
+        renderUsers(users);
+    }
+
     // function to render users in the table
     function renderUsers(users) {
         userTableBody.innerHTML = '';
