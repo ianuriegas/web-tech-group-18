@@ -43,6 +43,11 @@
         }
         return null;
       }
+
+      function deleteCookie(name) {
+        document.cookie =
+          name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
     </script>
     <a href="index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
@@ -61,7 +66,11 @@
       </a>
       <div class="dropdown-content">
         <a href="account.html">Manage</a>
-        <a href="#">Sign Out</a>
+        <a
+          href="javascript:void(0);"
+          onclick="deleteCookie('username'); window.location.href='index.html';"
+          >Sign Out</a
+        >
       </div>
     </div>
 
