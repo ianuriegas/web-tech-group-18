@@ -50,13 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     function getCategoryFromPage() {
-        const pagePath = window.location.pathname;
-        
-        // Implement logic to extract category from the page path
-        // For example, if each category has its own directory, you can split the path and get the category
-        const pathParts = pagePath.split('/');
-        const category = pathParts[1] || 'defaultCategory'; // defaultCategory is a fallback
-    
+        const url = window.location.href;
+
+    // Split the URL by '/' and get the last part
+        const urlParts = url.split('/');
+        const category = urlParts[urlParts.length - 1];
+
         return category;
     }    
 });
