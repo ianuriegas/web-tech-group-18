@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 $conn->begin_transaction();
 
 try {
-    $username = 'test';
+    $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : 'default_user';
     $postText = $_POST['postText'];
     $fileUploader = isset($_POST['fileUploader']) ? $_POST['fileUploader'] : null;
     $hyperlink = isset($_POST['hyperlink']) ? $_POST['hyperlink'] : null;
