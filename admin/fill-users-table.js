@@ -12,17 +12,20 @@ function renderUsers(users, userTableBody) {
 
     users.forEach(user => {
         const row = document.createElement('tr');
+        const isAdmin = user.admin === '1'; // Ensure strict comparison
+        console.log('Original user.admin:', user.admin);
+        console.log('Calculated isAdmin:', isAdmin);
+
         row.innerHTML = `
             <td>${user.id}</td>
             <td>${user.username}</td>
-            <td>${user.admin ? '1' : '0'}</td>
+            <td>${isAdmin ? '1' : '0'}</td>
             <td>
                 <button onclick="removeUser(${user.id})">Remove</button>
                 <button onclick="makeAdmin(${user.id})">Make Admin</button>
             </td>
         `;
         userTableBody.appendChild(row);
-        console.log('user.admin:', user.admin);
     });
 }
 
