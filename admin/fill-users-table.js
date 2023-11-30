@@ -29,46 +29,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // initial rendering
     fetchAndRenderUsers();
-
-    // function to remove a user
-    function removeUser(userId) {
-        // send an AJAX request
-        fetch('remove-user.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userId }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('User removed:', data);
-            // update the UI accordingly
-            fetchAndRenderUsers();
-        })
-        .catch(error => {
-            console.error('Error removing user:', error);
-        });
-    }
-
-    // function to make a user an admin
-    function makeAdmin(userId) {
-        // send an AJAX request
-        fetch('make-admin.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userId }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('User made admin:', data);
-            // update the UI accordingly
-            fetchAndRenderUsers(); 
-        })
-        .catch(error => {
-            console.error('Error making user admin:', error);
-        });
-    }
 });
+
+// function to remove a user
+function removeUser(userId) {
+    // send an AJAX request
+    fetch('remove-user.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('User removed:', data);
+        // update the UI accordingly
+        fetchAndRenderUsers();
+    })
+    .catch(error => {
+        console.error('Error removing user:', error);
+    });
+}
+
+// function to make a user an admin
+function makeAdmin(userId) {
+    // send an AJAX request
+    fetch('make-admin.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('User made admin:', data);
+        // update the UI accordingly
+        fetchAndRenderUsers(); 
+    })
+    .catch(error => {
+        console.error('Error making user admin:', error);
+    });
+}
