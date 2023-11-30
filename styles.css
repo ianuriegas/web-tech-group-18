@@ -453,8 +453,7 @@ input[type="category-label"] {
     text-align: center;
 }
 
-.user-table th,
-.user-table td {
+.user-table th, .user-table td {
     border: 1px solid black;
     padding: 8px;
 }

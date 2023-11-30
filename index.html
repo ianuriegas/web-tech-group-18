@@ -23,10 +23,17 @@
         if (user != null) {
           // User is logged in
           document.getElementById("username").innerHTML = "Hello, " + user;
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "account.html");
           document.getElementById("loginLink").style.display = "none"; // Hide login link
           document.getElementById("userDropdown").style.display = "block"; // Show user dropdown
         } else {
           // User is not logged in
+          document.getElementById("username").innerHTML = "Log in or sign up!";
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "login.html"); // Change to login page
           document.getElementById("loginLink").style.display = "block"; // Show login link
           document.getElementById("userDropdown").style.display = "none"; // Hide user dropdown
         }
@@ -53,7 +60,9 @@
       ><i class="fa fa-home"></i
     ></a>
     <div class="username">
-      <p id="username">Log in or sign up!</p>
+      <a href="login.html" id="usernameLink" style="text-decoration: none">
+        <p id="username">Log in or sign up!</p>
+      </a>
     </div>
     <a href="login.html" class="w3-xxlarge user-icon" id="loginLink">
       <i class="bi bi-person"></i>
