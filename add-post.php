@@ -17,12 +17,24 @@ if (mysqli_connect_errno()) {
 $conn->begin_transaction();
 
 try {
+
+    $uploadDirectory = __DIR__ . '/assets/';
     $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : 'default_user';
     $postText = $_POST['postText'];
-    $fileUploader = isset($_POST['fileUploader']) ? $_POST['fileUploader'] : null;
     $hyperlink = isset($_POST['hyperlink']) ? $_POST['hyperlink'] : null;
     $category = $_POST['category'];
+    
+    $fileUploader = null;
+    if (!empty($_FILES['fileUploader']['name'])) {
+        $fileUploader = basename($_FILES['fileUploader']['name']);
+        $targetPath = $uploadDirectory . $fileUploader;
 
+        if (move_uploaded_file($_FILES['fileUploader']['tmp_name'], $targetPath)) {
+            echo 'File has been uploaded successfully.';
+        } else {
+            throw new Exception('Error uploading file.');
+        }
+    }
 
     $sql = "INSERT INTO posts (username, body, image, hyperlink, category) VALUES ('$username', '$postText', '$fileUploader', '$hyperlink', '$category')";
 
