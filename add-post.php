@@ -21,7 +21,8 @@ try {
     $postText = $_POST['postText'];
     $fileUploader = isset($_POST['fileUploader']) ? $_POST['fileUploader'] : null;
     $hyperlink = isset($_POST['hyperlink']) ? $_POST['hyperlink'] : null;
-    $category = 'Art and Music';
+    $category = $_POST['category'];
+
 
     $sql = "INSERT INTO posts (username, body, image, hyperlink, category) VALUES ('$username', '$postText', '$fileUploader', '$hyperlink', '$category')";
 
