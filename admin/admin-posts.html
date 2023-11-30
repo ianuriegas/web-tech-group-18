@@ -17,49 +17,63 @@
   </head>
   <body onload="checkAdminCookie()">
     <script>
-        function checkAdminCookie() {
-            var isAdmin = getCookie('admin');
-            if (isAdmin == "true") {
-                // alert('Cookie confirmed admin!');
-                var user = getCookie('username');
-                if (user != null) {
-                    // alert('Cookie is set to ' + user);
-                    document.getElementById("username").innerHTML = "Hello, " + user;
-                }
-                else {
-                    // alert('No username cookie!');
-                }
-            }
-            else {
-                // alert('No admin cookie!');
-                // Redirect to admin-dashboard.html
-                window.location.href = '../index.html';
-                // alert('Access Denied: Not Admin!');
-            }
+      function checkAdminCookie() {
+        var isAdmin = getCookie("admin");
+        if (isAdmin == "true") {
+          // alert('Cookie confirmed admin!');
+          var user = getCookie("username");
+          if (user != null) {
+            // alert('Cookie is set to ' + user);
+            document.getElementById("username").innerHTML = "Hello, " + user;
+          } else {
+            // alert('No username cookie!');
+          }
+        } else {
+          // alert('No admin cookie!');
+          // Redirect to admin-dashboard.html
+          window.location.href = "../index.html";
+          // alert('Access Denied: Not Admin!');
         }
+      }
 
-        // check for cookie of 'name'
-        function getCookie(name) {
-            var cookieArr = document.cookie.split(';');
-            for (var i = 0; i < cookieArr.length; i++) {
-                var cookiePair = cookieArr[i].split('=');
-                if (name == cookiePair[0].trim()) {
-                return decodeURIComponent(cookiePair[1]);
-                }
-            }
-            return null;
+      // check for cookie of 'name'
+      function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+        for (var i = 0; i < cookieArr.length; i++) {
+          var cookiePair = cookieArr[i].split("=");
+          if (name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+          }
         }
+        return null;
+      }
     </script>
     <a href="../index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
     ></a>
 
-    <a href="../login.html" class="w3-xxlarge user-icon"
-      ><i class="bi bi-person"></i>
-      <div class="username">
+    <div class="username">
+      <a href="login.html" id="usernameLink" style="text-decoration: none">
         <p id="username">Hello, [ADMIN]</p>
+      </a>
+    </div>
+
+    <div class="dropdown" id="userDropdown" style="display: block">
+      <a href="login.html" class="w3-xxlarge gear-icon">
+        <i class="bi bi-gear"></i>
+      </a>
+      <div class="dropdown-content">
+        <a href="account.html">Manage</a>
+        <a
+          href="javascript:void(0);"
+          onclick="deleteCookie('username'); 
+          window.location.href='index.html';"
+        >
+          Sign Out
+        </a>
       </div>
-    </a>
+    </div>
+    
     <h1>Admin Posts</h1>
     <div class="admin-dash-container">
       <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
