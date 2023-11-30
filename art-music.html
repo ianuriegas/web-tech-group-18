@@ -26,16 +26,18 @@
           document
             .getElementById("usernameLink")
             .setAttribute("href", "account.html");
-          document.getElementById("loginLink").style.display = "none"; // Hide login link
-          document.getElementById("userDropdown").style.display = "block"; // Show user dropdown
+          document.getElementById("loginLink").style.display = "none";
+          document.getElementById("userDropdown").style.display = "block";
+          document.getElementById("plusButton").style.display = "block"; // Show the button
         } else {
           // User is not logged in
           document.getElementById("username").innerHTML = "Log in or sign up!";
           document
             .getElementById("usernameLink")
-            .setAttribute("href", "login.html"); // Change to login page
-          document.getElementById("loginLink").style.display = "block"; // Show login link
-          document.getElementById("userDropdown").style.display = "none"; // Hide user dropdown
+            .setAttribute("href", "login.html");
+          document.getElementById("loginLink").style.display = "block";
+          document.getElementById("userDropdown").style.display = "none";
+          document.getElementById("plusButton").style.display = "none"; // Keep the button hidden
         }
       }
 
