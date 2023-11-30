@@ -32,7 +32,7 @@ try {
         if (move_uploaded_file($_FILES['fileUploader']['tmp_name'], $targetPath)) {
             echo 'File has been uploaded successfully.';
         } else {
-            throw new Exception('Error uploading file.');
+            throw new Exception('Error uploading file.Target Path: ' . $targetPath);
         }
     }
 
