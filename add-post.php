@@ -26,8 +26,16 @@ try {
     
     $fileUploader = null;
     if (!empty($_FILES['fileUploader']['name'])) {
+
+        echo '<pre>';
+        print_r($_FILES);
+        echo '</pre>';
+
         $fileUploader = basename($_FILES['fileUploader']['name']);
         $targetPath = $uploadDirectory . $fileUploader;
+
+        echo 'File Type: ' . $_FILES['fileUploader']['type'] . '<br>';
+        echo 'File Size: ' . $_FILES['fileUploader']['size'] . ' bytes<br>';
 
         if (move_uploaded_file($_FILES['fileUploader']['tmp_name'], $targetPath)) {
             echo 'File has been uploaded successfully.';
