@@ -16,13 +16,50 @@
     />
     <script src="fill-users-table.js"></script>
   </head>
-  <body>
+  <body onload="checkAdminCookie()">
+    <script>
+        function checkAdminCookie() {
+            var isAdmin = getCookie('admin');
+            if (isAdmin == "true") {
+                // alert('Cookie confirmed admin!');
+                var user = getCookie('username');
+                if (user != null) {
+                    // alert('Cookie is set to ' + user);
+                    document.getElementById("username").innerHTML = "Hello, " + user;
+                }
+                else {
+                    // alert('No username cookie!');
+                }
+            }
+            else {
+                // alert('No admin cookie!');
+                // Redirect to admin-dashboard.html
+                window.location.href = '../index.html';
+                // alert('Access Denied: Not Admin!');
+            }
+        }
+
+        // check for cookie of 'name'
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+                if (name == cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+    </script>
     <a href="../index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
     ></a>
 
     <a href="../login.html" class="w3-xxlarge user-icon"
       ><i class="bi bi-person"></i>
+      <div class="username">
+        <p id="username">Hello, [ADMIN]</p>
+      </div>
     </a>
     <h1>Admin Users</h1>
     <div class="admin-dash-container">
