@@ -18,7 +18,7 @@ $conn->begin_transaction();
 
 try {
 
-    $uploadDirectory = __DIR__ . '/assets/';
+    $uploadDirectory = __DIR__ . '/assets/images/';
     $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : 'default_user';
     $postText = $_POST['postText'];
     $hyperlink = isset($_POST['hyperlink']) ? $_POST['hyperlink'] : null;
