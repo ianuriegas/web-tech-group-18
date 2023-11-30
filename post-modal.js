@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
     
         const formData = new FormData(document.getElementById('newPostForm'));
+        const category = getCategoryFromPage();
         console.log('Form Data:', formData);
+        formData.append('category', category);
     
         // Use the Fetch API to send the data to the PHP script
         fetch('./add-post.php', {
@@ -47,4 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Handle errors
         });
     });
+    function getCategoryFromPage() {
+        const pagePath = window.location.pathname;
+        
+        // Implement logic to extract category from the page path
+        // For example, if each category has its own directory, you can split the path and get the category
+        const pathParts = pagePath.split('/');
+        const category = pathParts[1] || 'defaultCategory'; // defaultCategory is a fallback
+    
+        return category;
+    }    
 });
