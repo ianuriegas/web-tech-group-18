@@ -26,6 +26,10 @@ if ($result->num_rows > 0) {
     }
 }
 
+// Log the users array
+error_log('Users Array: ' . print_r($users, true));
+
+
 // Close the connection
 $conn->close();
 

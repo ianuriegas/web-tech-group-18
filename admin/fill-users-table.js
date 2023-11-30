@@ -12,7 +12,6 @@ function renderUsers(users, userTableBody) {
 
     users.forEach(user => {
         const row = document.createElement('tr');
-        console.log('user.admin:', user.admin);
         row.innerHTML = `
             <td>${user.id}</td>
             <td>${user.username}</td>
@@ -23,6 +22,7 @@ function renderUsers(users, userTableBody) {
             </td>
         `;
         userTableBody.appendChild(row);
+        console.log('user.admin:', user.admin);
     });
 }
 
