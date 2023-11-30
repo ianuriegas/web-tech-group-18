@@ -17,7 +17,7 @@ function makeAdmin(userId) {
 
 // Fetch users from the server and render the table
 async function fetchAndRenderUsers() {
-    const response = await fetch('get_users.php');
+    const response = await fetch('get-users.php');
     const users = await response.json();
     renderUsers(users);
 }
