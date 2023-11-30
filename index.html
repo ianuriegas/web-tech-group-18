@@ -19,16 +19,23 @@
   <body onload="checkCookie()">
     <script>
       function checkCookie() {
+        var admin = getCookie("admin");
         var user = getCookie("username");
         if (user != null) {
           // User is logged in
           document.getElementById("username").innerHTML = "Hello, " + user;
-          document
-            .getElementById("usernameLink")
-            .setAttribute(
-              "href",
-              "/web-tech-group-18/admin/admin-dashboard.html"
-            );
+          if (admin == true) {
+            document
+              .getElementById("usernameLink")
+              .setAttribute(
+                "href",
+                "/web-tech-group-18/admin/admin-dashboard.html"
+              );
+          } else {
+            document
+              .getElementById("usernameLink")
+              .setAttribute("href", "/web-tech-group-18/account.html");
+          }
           document.getElementById("loginLink").style.display = "none"; // Hide login link
           document.getElementById("userDropdown").style.display = "block"; // Show user dropdown
         } else {
