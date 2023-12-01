@@ -22,24 +22,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
-    const passwordForm = document.getElementById('passwordForm');
-    passwordForm.addEventListener('submit', async function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        try {
-            // Fetch users
-            const response = await fetch('fetch-users.php');
-            const users = await response.json();
-
-            console.log('Fetched users:', users); // Log the fetched users for debugging
-
-            updatePassword(users); // Call your updatePassword function
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
-    });
-});
-
 async function updateUsername(users) {
     try {
         // Get the current username from the cookie
