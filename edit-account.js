@@ -25,7 +25,7 @@ async function updateUsername(users) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ currentUsername, newUsername }),,
+            body: JSON.stringify({ currentUsername, newUsername }),
         });
 
         const data = await response.json();
