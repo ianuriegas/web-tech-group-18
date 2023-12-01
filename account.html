@@ -150,12 +150,10 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal('passwordModal')">&times;</span>
         <h2>Change Password</h2>
-        <input
-          type="password"
-          placeholder="Enter new password"
-          name="newPassword"
-        />
-        <button class="save-btn">Save Changes</button>
+        <form id="usernameForm" onsubmit="updatePassword(); return false;">
+          <input type="text" placeholder="Enter new password" name="newPassword" id="newPasswordInput" />
+          <button class="save-btn">Save Changes</button>
+        </form>
       </div>
     </div>
 
