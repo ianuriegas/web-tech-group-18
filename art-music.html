@@ -97,7 +97,7 @@
     </div>
 
     <!-- Modal for new post -->
-    <div id="newPostModal" class="modal" >
+    <div id="newPostModal" class="modal">
       <div class="modal-content">
         <button id="closeForm" class="close">&times;</button>
         <h1>Create a New Post</h1>
@@ -121,5 +121,10 @@
         </form>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchAndRenderPostsByCategory("art-music");
+      });
+    </script>
   </body>
 </html>
