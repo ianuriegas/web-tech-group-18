@@ -11,27 +11,27 @@ async function fetchAndRenderPosts() {
     postTableBody.innerHTML = '';
   
     posts.forEach(post => {
-      const row = document.createElement('tr');
+        // Check if the post has the "sport.html" category
+        if (post.category === 'sport.html') {
+            const row = document.createElement('tr');
   
-      row.innerHTML = `
-        <td>
-            <div>
-                <p>${post.username}</p>
-            </div>
-            <div>
-                <img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">
-            </div>
-            <div>
-                <p>${post.body}</p>
-            </div>
-            <div>
-                ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}
-            </div>
-        </td>
-      `;
-      postTableBody.appendChild(row);
+            row.innerHTML = `
+                <td>
+                    <div>
+                        <img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div>
+                        <p>${post.body}</p>
+                    </div>
+                    <div>
+                        ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}
+                    </div>
+                </td>
+            `;
+            postTableBody.appendChild(row);
+        }
     });
-  }
+}
   
   // function to remove a post
   function removePost(postId) {
