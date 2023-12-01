@@ -15,6 +15,7 @@ function renderPosts(posts, postTableBody) {
 
     // Remove ".html" from the category
     const categoryWithoutHtml = post.category ? post.category.replace('.html', '') : 'No Category';
+    console.log('Processed category:', categoryWithoutHtml);
 
     row.innerHTML = `
       <td>${post.id}</td>
