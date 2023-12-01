@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Generic function to fetch and render posts based on category
 async function fetchAndRenderPostsByCategory(category) {
   const postTableBody = document.getElementById("postTableBody");
-  const response = await fetch("get-posts.php");
+  const response = await fetch("admin/get-posts.php");
   const posts = await response.json();
 
   // Filter posts to include only those with the specified category
