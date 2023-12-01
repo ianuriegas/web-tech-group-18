@@ -41,7 +41,7 @@ async function updateUsername(users) {
         if (data.status === 'success') {
             // Update the displayed username
             document.getElementById('username-info').innerHTML = newUsername;
-
+            document.cookie = `username=${newUsername}; path=/`;
             // Close the modal after updating
             closeModal('usernameModal');
         } else {
