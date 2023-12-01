@@ -4,22 +4,34 @@ document.addEventListener('DOMContentLoaded', function () {
     usernameForm.addEventListener('submit', async function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
-        // Fetch users
-        const response = await fetch('fetch-users.php');
-        const users = await response.json();
+        try {
+            // Fetch users
+            const response = await fetch('fetch-users.php');
+            const users = await response.json();
+            
+            console.log('Fetched users:', users); // Log the fetched users for debugging
 
-        updateUsername(users); // Call your updateUsername function
+            updateUsername(users); // Call your updateUsername function
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
     });
 
-    const passwordForm = document.getElementById('passwordForm')
+    const passwordForm = document.getElementById('passwordForm');
     passwordForm.addEventListener('submit', async function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
-        // Fetch users
-        const response = await fetch('fetch-users.php');
-        const users = await response.json();
+        try {
+            // Fetch users
+            const response = await fetch('fetch-users.php');
+            const users = await response.json();
 
-        updatePassword(users); // Call your updateUsername function
+            console.log('Fetched users:', users); // Log the fetched users for debugging
+
+            updatePassword(users); // Call your updatePassword function
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
     });
 });
 
