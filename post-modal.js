@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // closes the modal
     function closeModal() {
         modal.style.display = 'none';
+        location.reload();
     }
 
     // submit the form (might need to change or update when connected to db)

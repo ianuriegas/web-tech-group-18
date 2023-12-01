@@ -18,7 +18,7 @@ async function fetchAndRenderPosts() {
             row.innerHTML = `
                 <td>
                     <div>
-                        <img src="./assets/images/${post.image}" alt="Image">
+                      ${post.image ? `<img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">` : ''}
                     </div>
                     <div>
                         <p>${post.body}</p>
