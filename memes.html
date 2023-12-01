@@ -15,6 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
     <script src="post-modal.js"></script>
+    <script src="/admin/fill-posts-table.js"></script>
   </head>
   <body onload="checkCookie()">
     <script>
@@ -137,13 +138,5 @@
         </tbody>
       </table>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetchAndRenderPostsByCategory("memes.html");
-      });
-    </script>
-
-    <script src="/admin/fill-posts-table.js"></script>
   </body>
 </html>
