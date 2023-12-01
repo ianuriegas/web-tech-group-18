@@ -15,15 +15,18 @@ async function fetchAndRenderPosts() {
   
       row.innerHTML = `
         <td>
-          <div>
-            <img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">
-          </div>
-          <div>
-            <p>${post.body}</p>
-          </div>
-          <div>
-            ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}
-          </div>
+            <div>
+                <p>${post.username}</p>
+            </div>
+            <div>
+                <img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div>
+                <p>${post.body}</p>
+            </div>
+            <div>
+                ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}
+            </div>
         </td>
       `;
       postTableBody.appendChild(row);
