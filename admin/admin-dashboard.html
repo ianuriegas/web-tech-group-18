@@ -25,6 +25,12 @@
           if (user != null) {
             // alert('Cookie is set to ' + user);
             document.getElementById("username").innerHTML = "Hello, " + user;
+            document
+              .getElementById("usernameLink")
+              .setAttribute(
+                "href",
+                "/web-tech-group-18/admin/admin-dashboard.html"
+              );
           } else {
             // alert('No username cookie!');
           }
