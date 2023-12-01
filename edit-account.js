@@ -79,6 +79,7 @@ async function updateUsername(users) {
 
 async function updatePassword(users) {
     try {
+        console.log('Fetched users:', users);
         // Get the current username from the cookie
         const currentUsername = getCookie('username');
 
