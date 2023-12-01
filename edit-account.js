@@ -73,10 +73,10 @@ async function updatePassword(users) {
         // Get the new password from the input field
         const newPassword = document.getElementById('newPasswordInput').value;
 
-        if (!users || users.length === 0) {
-            console.error('No users found.');
-            return;
-        }
+        // if (!users || users.length === 0) {
+        //     console.error('No users found.');
+        //     return;
+        // }
 
         // Find the user in the array based on the current username
         const user = users.find(user => user.username === currentUsername);
