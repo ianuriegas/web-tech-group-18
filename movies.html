@@ -15,6 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
     <script src="post-modal.js"></script>
+    <script src="display-movies.js"></script>
   </head>
   <body onload="checkCookie()">
     <script>
@@ -92,6 +93,15 @@
       <button class="w3-xlarge plus-icon" id="plusButton">
         <i class="fa fa-plus"></i>
       </button>
+    </div>
+
+    <!-- Table to display posts -->
+    <div class="post-table-container">
+      <table class="post-table">
+        <tbody id="postTableBody">
+          <!-- post data will be inserted here -->
+        </tbody>
+      </table>
     </div>
 
     <!-- Modal for new post -->

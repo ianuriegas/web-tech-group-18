@@ -12,7 +12,7 @@ async function fetchAndRenderPosts() {
   
     posts.forEach(post => {
         // Check if the post has the "sport.html" category
-        if (post.category === 'sports.html') {
+        if (post.category === 'art-music.html') {
             const row = document.createElement('tr');
   
             row.innerHTML = `
