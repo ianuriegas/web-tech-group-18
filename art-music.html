@@ -92,9 +92,9 @@
         <i class="fa fa-plus"></i>
       </button>
     </div>
-    <div class="posts-container">
+    <!-- <div class="posts-container">
       <div class="post-box">test post #artissick</div>
-    </div>
+    </div> -->
 
     <!-- Modal for new post -->
     <div id="newPostModal" class="modal">
@@ -121,10 +121,32 @@
         </form>
       </div>
     </div>
+
+    <div class="post-table-container">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Body</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Hyperlink</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="postTableBody">
+          <!-- post data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         fetchAndRenderPostsByCategory("art-music");
       });
     </script>
+
+    <script src="/admin/fill-posts-table.js"></script>
   </body>
 </html>
