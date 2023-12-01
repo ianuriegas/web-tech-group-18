@@ -516,8 +516,8 @@ input[type="category-label"] {
 
 /* Style for the images */
 .post-table img {
-    max-width: 25px; /* Adjust the maximum width based on your preference */
-    max-height: 25px; /* Adjust the maximum height based on your preference */
+    max-width: 100px; /* Adjust the maximum width based on your preference */
+    max-height: 100px; /* Adjust the maximum height based on your preference */
 }
 
 #plusButton {
