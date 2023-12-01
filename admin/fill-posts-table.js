@@ -75,33 +75,3 @@ async function fetchAndRenderPostsByCategory(category) {
   const filteredPosts = posts.filter((post) => post.category === category);
   renderPosts(filteredPosts, postTableBody);
 }
-
-// Function to render posts in the table
-function renderCategoryPosts(posts, postTableBody) {
-  postTableBody.innerHTML = "";
-
-  posts.forEach((post) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-          <td>${post.id}</td>
-          <td>${post.username}</td>
-          <td>${post.body}</td>
-          <td>${post.category}</td>
-          <td>${
-            post.image
-              ? `<img src="../assets/images/${post.image}" alt="Image">`
-              : "No Image"
-          }</td>
-          <td>${
-            post.hyperlink
-              ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>`
-              : "No Hyperlink"
-          }</td>
-          <td>
-              <button onclick="removePost(${post.id})">Remove</button>
-          </td>
-      `;
-    postTableBody.appendChild(row);
-  });
-}
