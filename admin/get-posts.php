@@ -15,25 +15,24 @@ if (mysqli_connect_errno()) {
 }
 
 // Fetch users from the database
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM posts";
 $result = $conn->query($sql);
 
-$users = array();
+$posts = array();
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $users[] = $row;
+        $posts[] = $row;
     }
 }
 
 // Log the users array
-error_log('Users Array: ' . print_r($users, true));
-
+error_log('Posts Array: ' . print_r($posts, true));
 
 // Close the connection
 $conn->close();
 
 // Send JSON response
 header('Content-Type: application/json');
-echo json_encode($users);
+echo json_encode($posts);
 ?>

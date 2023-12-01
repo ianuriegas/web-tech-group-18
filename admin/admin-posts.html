@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
+    <script src="fill-posts-table.js"></script>
   </head>
   <body onload="checkAdminCookie()">
     <script>
@@ -83,6 +84,24 @@
     <div class="admin-dash-container">
       <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
       <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
+    </div>
+    <!-- table to display posts -->
+    <div class="post-table-container">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Body</th>
+            <th>Image</th>
+            <th>Hyperlink</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="postTableBody">
+          <!-- post data will be inserted here -->
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
