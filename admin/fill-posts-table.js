@@ -18,14 +18,14 @@ function renderPosts(posts, postTableBody) {
         <td>${post.username}</td>
         <td>${post.body}</td>
         <td>${post.image ? `<img src="../assets/images/${post.image}" alt="Image">` : 'No Image'}</td>
-        <td>${post.hyperlink}</td>
+        <td>${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}</td>
         <td>
           <button onclick="removePost(${post.id})">Remove</button>
         </td>
       `;
       postTableBody.appendChild(row);
     });
-  }
+}
 
 // function to remove a post
 function removePost(postId) {
