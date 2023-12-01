@@ -16,6 +16,11 @@
     />
     <script src="post-modal.js"></script>
     <script src="/admin/fill-posts-table.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchAndRenderPostsByCategory("art-music.html");
+      });
+    </script>
   </head>
   <body onload="checkCookie()">
     <script>
@@ -141,11 +146,5 @@
         </tbody>
       </table>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetchAndRenderPostsByCategory("art-music.html");
-      });
-    </script>
   </body>
 </html>
