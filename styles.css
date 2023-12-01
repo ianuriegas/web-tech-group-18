@@ -512,7 +512,9 @@ input[type="category-label"] {
 .post-table button {
     padding: 5px 10px;
     cursor: pointer;
-}
+    display: block;
+    margin: 0 auto;
+  }
 
 /* Style for the images */
 .post-table img {
