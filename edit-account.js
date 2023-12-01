@@ -1,8 +1,16 @@
-async function fetchAndRenderUsers() {
-    const response = await fetch('fetch-users.php');
-    const users = await response.json();
-    updateUsername(users);
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const usernameForm = document.getElementById('usernameForm');
+
+    usernameForm.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Fetch users
+        const response = await fetch('fetch-users.php');
+        const users = await response.json();
+
+        updateUsername(users); // Call your updateUsername function
+    });
+});
 
 async function updateUsername(users) {
     try {
