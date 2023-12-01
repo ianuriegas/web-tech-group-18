@@ -8,24 +8,27 @@ async function fetchAndRenderPosts() {
   
 // function to render posts in the table
 function renderPosts(posts, postTableBody) {
-    postTableBody.innerHTML = '';
-  
-    posts.forEach(post => {
-      const row = document.createElement('tr');
-  
-      row.innerHTML = `
-        <td>${post.id}</td>
-        <td>${post.username}</td>
-        <td>${post.body}</td>
-        <td>${post.category}</td>
-        <td>${post.image ? `<img src="../assets/images/${post.image}" alt="Image">` : 'No Image'}</td>
-        <td>${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}</td>
-        <td>
-          <button onclick="removePost(${post.id})">Remove</button>
-        </td>
-      `;
-      postTableBody.appendChild(row);
-    });
+  postTableBody.innerHTML = '';
+
+  posts.forEach(post => {
+    const row = document.createElement('tr');
+
+    // Remove ".html" from the category
+    const categoryWithoutHtml = post.category ? post.category.replace('.html', '') : 'No Category';
+
+    row.innerHTML = `
+      <td>${post.id}</td>
+      <td>${post.username}</td>
+      <td>${post.body}</td>
+      <td>${categoryWithoutHtml}</td>
+      <td>${post.image ? `<img src="../assets/images/${post.image}" alt="Image">` : 'No Image'}</td>
+      <td>${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}</td>
+      <td>
+        <button onclick="removePost(${post.id})">Remove</button>
+      </td>
+    `;
+    postTableBody.appendChild(row);
+  });
 }
 
 // function to remove a post
