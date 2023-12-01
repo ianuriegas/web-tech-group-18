@@ -474,8 +474,6 @@ input[type="category-label"] {
 .user-table button {
     padding: 5px 10px;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
 }
 
 /* Admin post table style with text wrapping */
