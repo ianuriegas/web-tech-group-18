@@ -18,7 +18,7 @@ async function fetchAndRenderPosts() {
             row.innerHTML = `
                 <td>
                     <div>
-                      <p style="font-size: x-large; font-family: 'FontAwesome';"><b>${post.username}</b></p>
+                      <p style="font-size: x-large; font-family: 'FontAwesome';"><b><u>${post.username}</u></b></p> 
                     </div>
                     <div>
                       ${post.image ? `<img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">` : ''}
