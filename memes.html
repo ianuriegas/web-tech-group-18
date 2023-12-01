@@ -119,10 +119,31 @@
         </form>
       </div>
     </div>
+    <div class="post-table-container">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Body</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Hyperlink</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="postTableBody">
+          <!-- post data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         fetchAndRenderPostsByCategory("memes");
       });
     </script>
+
+    <script src="/admin/fill-posts-table.js"></script>
   </body>
 </html>
