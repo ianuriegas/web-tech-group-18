@@ -57,6 +57,7 @@ async function updateUsername(users) {
             document.cookie = `username=${newUsername}; path=/`;
             // Close the modal after updating
             closeModal('usernameModal');
+            location.reload();
         } else {
             // Handle error
             console.error(data.message);
@@ -107,6 +108,7 @@ async function updatePassword(users) {
 
             // Close the modal after updating
             closeModal('passwordModal');
+            location.reload();
         } else {
             // Handle error
             console.error(data.message);
