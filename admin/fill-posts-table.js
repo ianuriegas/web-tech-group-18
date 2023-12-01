@@ -9,23 +9,23 @@ async function fetchAndRenderPosts() {
 // function to render posts in the table
 function renderPosts(posts, postTableBody) {
     postTableBody.innerHTML = '';
-
+  
     posts.forEach(post => {
-        const row = document.createElement('tr');
-
-        row.innerHTML = `
+      const row = document.createElement('tr');
+  
+      row.innerHTML = `
         <td>${post.id}</td>
         <td>${post.username}</td>
         <td>${post.body}</td>
-        <td>${post.image ? `<img src="web-tech-group-18/assets/images/${post.image}" alt="Image">` : 'No Image'}</td>
+        <td>${post.image ? `<img src="../assets/images/${post.image}" alt="Image">` : 'No Image'}</td>
         <td>${post.hyperlink}</td>
         <td>
-            <button onclick="removePost(${post.id})">Remove</button>
+          <button onclick="removePost(${post.id})">Remove</button>
         </td>
-        `;
-        postTableBody.appendChild(row);
+      `;
+      postTableBody.appendChild(row);
     });
-}
+  }
 
 // function to remove a post
 function removePost(postId) {
