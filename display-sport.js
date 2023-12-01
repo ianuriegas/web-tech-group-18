@@ -18,13 +18,13 @@ async function fetchAndRenderPosts() {
             row.innerHTML = `
                 <td>
                     <div>
-                        <img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">
+                        <img src="./assets/images/${post.image}" alt="Image">
                     </div>
                     <div>
                         <p>${post.body}</p>
                     </div>
                     <div>
-                        ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : 'No Hyperlink'}
+                        ${post.hyperlink ? `<a href="${post.hyperlink}" target="_blank">${post.hyperlink}</a>` : ''}
                     </div>
                 </td>
             `;
