@@ -25,12 +25,7 @@
           if (user != null) {
             // alert('Cookie is set to ' + user);
             document.getElementById("username").innerHTML = "Hello, " + user;
-            document
-              .getElementById("usernameLink")
-              .setAttribute(
-                "href",
-                "/web-tech-group-18/admin/admin-dashboard.html"
-              );
+            
           } else {
             // alert('No username cookie!');
           }
@@ -64,7 +59,7 @@
     ></a>
 
     <div class="username">
-      <a href="../login.html" id="usernameLink" style="text-decoration: none">
+      <a href="/admin-dashboard.html" id="usernameLink" style="text-decoration: none">
         <p id="username">Hello, [ADMIN]</p>
       </a>
     </div>
