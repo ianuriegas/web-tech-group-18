@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
             // Optionally, close the modal
             closeModal();
+            location.reload();
         })
         .catch(error => {
             console.error('Error:', error);
