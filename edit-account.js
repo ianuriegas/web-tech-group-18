@@ -7,14 +7,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.log('Fetched users:', users); // Log the fetched users for debugging
 
         const usernameForm = document.getElementById('usernameForm');
+        const passwordForm = document.getElementById('passwordForm');
+
         usernameForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission behavior
+            console.log('Submitting username form...');
             updateUsername(users); // Call your updateUsername function
         });
 
-        const passwordForm = document.getElementById('passwordForm');
         passwordForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission behavior
+            console.log('Submitting password form...');
             updatePassword(users); // Call your updatePassword function
         });
     } catch (error) {
