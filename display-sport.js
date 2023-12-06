@@ -23,7 +23,7 @@ async function fetchAndRenderPosts() {
                     <div>
                       ${post.image ? `<img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">` : ''}
                     </div>
-                    <div>
+                    <div style="white-space: pre-wrap;">
                         <p>${post.body}</p>
                     </div>
                     <div>
