@@ -20,10 +20,10 @@ async function fetchAndRenderPosts() {
                     <div>
                       <p style="font-size: x-large; font-family: 'FontAwesome';"><b><u>${post.username}</u></b></p>
                     </div>
-                    <div style="white-space: pre-wrap;">
+                    <div>
                       ${post.image ? `<img src="./assets/images/${post.image}" alt="Image" style="max-width: 100%; height: auto;">` : ''}
                     </div>
-                    <div>
+                    <div style="white-space: pre-wrap;">
                         <p>${post.body}</p>
                     </div>
                     <div>
